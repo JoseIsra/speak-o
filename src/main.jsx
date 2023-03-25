@@ -4,8 +4,10 @@ import App from './App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { DialogueGame } from './pages/DialogueGame';
+import { GameReport } from './pages/GameReport';
 import { GameLayout } from './layouts/GameLayout';
 import { SpeechProvider } from '@speechly/react-client';
+import { ErrorProvider } from './context/ErrorProvider';
 
 const router = createBrowserRouter([
   {
@@ -22,11 +24,17 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: 'report',
+    element: <GameReport />,
+  },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <SpeechProvider appId={import.meta.env.VITE_SPEECHLY_KEY}>
-      <RouterProvider router={router} />
+      <ErrorProvider>
+        <RouterProvider router={router} />
+      </ErrorProvider>
     </SpeechProvider>
   </React.StrictMode>
 );
