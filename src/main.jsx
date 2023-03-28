@@ -7,7 +7,7 @@ import { DialogueGame } from './pages/DialogueGame';
 import { GameReport } from './pages/GameReport';
 import { GameLayout } from './layouts/GameLayout';
 import { SpeechProvider } from '@speechly/react-client';
-import { ErrorProvider } from './context/ErrorProvider';
+import { GameProvider } from './context/GameProvider';
 
 const router = createBrowserRouter([
   {
@@ -32,9 +32,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <SpeechProvider appId={import.meta.env.VITE_SPEECHLY_KEY}>
-      <ErrorProvider>
+      <GameProvider>
         <RouterProvider router={router} />
-      </ErrorProvider>
+      </GameProvider>
     </SpeechProvider>
   </React.StrictMode>
 );

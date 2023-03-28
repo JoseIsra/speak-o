@@ -1,12 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import { useSpeechly } from '../hooks/useSpeechly';
 
 export function Navbar() {
   const navigate = useNavigate();
-  const { resetResources } = useSpeechly();
+
   const returnToHome = () => {
-    resetResources();
     navigate('/');
+    window.location.reload();
   };
 
   return (

@@ -2,19 +2,19 @@ import { createContext, useContext, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { state, reducer } from '../reducer/reducer';
 
-export const ErrorContext = createContext();
+export const GameContext = createContext();
 
-export const ErrorProvider = ({ children }) => {
+export const GameProvider = ({ children }) => {
   const [initialState, dispatch] = useReducer(reducer, state);
   return (
-    <ErrorContext.Provider value={{ initialState, dispatch }}>
+    <GameContext.Provider value={{ initialState, dispatch }}>
       {children}
-    </ErrorContext.Provider>
+    </GameContext.Provider>
   );
 };
 
-export const useErrorContext = () => useContext(ErrorContext);
+export const useGameContext = () => useContext(GameContext);
 
-ErrorProvider.propTypes = {
+GameProvider.propTypes = {
   children: PropTypes.node,
 };

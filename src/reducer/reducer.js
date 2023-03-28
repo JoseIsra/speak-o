@@ -1,5 +1,7 @@
 export const state = {
   badAnswers: [],
+  speechDone: false,
+  tentativeTranscript: '',
 };
 
 export function reducer(state, action) {
@@ -13,6 +15,12 @@ export function reducer(state, action) {
         ...state,
         badAnswers: [...state.badAnswers, { ...action.payload }],
       };
+    case 'RESET_REPORT':
+      return {
+        ...state,
+        badAnswers: [],
+      };
+
     default:
       return state;
   }

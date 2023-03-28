@@ -8,7 +8,7 @@ import party from 'party-js';
 import { Progress } from '../components/Progress';
 import { Cube } from '../components/cube/Cube';
 import { useNavigate } from 'react-router-dom';
-import { useErrorContext } from '../context/ErrorProvider';
+import { useGameContext } from '../context/GameProvider';
 
 const CORRECT_ANSWER_SOUND =
   'https://cdn.freesound.org/previews/587/587252_10334845-lq.mp3';
@@ -25,7 +25,7 @@ export function DialogueGame() {
     updateIndex,
     totalCharacters,
   } = useGame();
-  const { dispatch } = useErrorContext();
+  const { dispatch } = useGameContext();
 
   const dialogueWrapper = useRef(null);
 
@@ -39,7 +39,6 @@ export function DialogueGame() {
   };
 
   const handleAction = () => {
-    console.log('handle action?', currentIndex + 1);
     if (currentIndex + 1 == totalCharacters) {
       endGame();
     } else {
@@ -86,6 +85,7 @@ export function DialogueGame() {
           currentQuestion={(currentIndex % totalCharacters) + 1}
           totalQuestions={totalCharacters}
         />
+
         {!loading ? (
           <>
             <CharacterSentence
@@ -111,48 +111,27 @@ export function DialogueGame() {
           </div>
         )}
       </div>
-
-      {/* <button
-        className="
-          btn 
-          btn-primary 
-          btn-md 
-          text-gray-100 
-          fixed bottom-2 
-          left-[50%] translate-x-[-50%]
-          hover:text-bold 
-          hover:scale-110
-          hover:bg-primary
-          transition-all
-          linear
-          duration-200
-          "
-        onClick={handleAction}
-      >
-        {currentIndex + 1 == totalCharacters ? 'Finalizar' : 'Siguiente'}
-      </button> */}
-      {speechDone ? (
-        <button
-          className="
-          btn 
-          btn-primary 
-          btn-md 
-          text-gray-100 
-          fixed bottom-2 
-          left-[50%] translate-x-[-50%]
-          hover:text-bold 
-          hover:scale-110
-          hover:bg-primary
-          transition-all
-          linear
-          duration-200
-          "
-          onClick={handleAction}
-        >
-          {currentIndex + 1 == totalCharacters ? 'Finalizar' : 'Siguiente'}
-        </button>
-      ) : (
-        <PushToTalkButton placement="bottom" size="70px" voffset="0" />
+      {!loading && (
+        <>
+          <button
+            className={`
+              btn 
+              btn-primary 
+              btn-md 
+            text-gray-100 
+              fixed bottom-2 
+              left-[50%] 
+              translate-x-[-50%]
+              ${speechDone ? '' : 'hidden'}
+            `}
+            onClick={handleAction}
+          >
+            {currentIndex + 1 == totalCharacters ? 'Finalizar' : 'Siguiente'}
+          </button>
+          {!speechDone && (
+            <PushToTalkButton placement="bottom" size="70px" voffset="0" />
+          )}
+        </>
       )}
     </section>
   );
