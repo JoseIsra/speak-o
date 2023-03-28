@@ -5,6 +5,7 @@ export function Navbar() {
 
   const returnToHome = () => {
     navigate('/');
+    window.location.reload();
   };
 
   return (

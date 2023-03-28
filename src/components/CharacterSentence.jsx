@@ -7,17 +7,19 @@ export function CharacterSentence({
   characterImg,
   characterOrigin,
 }) {
-  const getImgUrl = (image) => {
+  const getImg = (image) => {
     return new URL(`../assets/${image}`, import.meta.url).href;
   };
+
   return (
     <section className="flex flex-col md:flex-row w-full">
       <div className="h-full flex-[0.5]">
         <picture className="shadow-md">
           <img
-            src={getImgUrl(characterImg)}
+            src={getImg(characterImg)}
             alt="A picture representing the scence of the movie or series of the dialogue character"
             className="w-full object-contain h-full rounded-lg"
+            loading="lazy"
           />
         </picture>
         <p className="text-2xl font-bold text-center text-primary uppercase">
