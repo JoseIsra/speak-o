@@ -5,10 +5,6 @@ export const state = {
 };
 
 export function reducer(state, action) {
-  console.log('receive reducer', {
-    state,
-    action,
-  });
   switch (action.type) {
     case 'ADD_BAD_ANSWER':
       return {

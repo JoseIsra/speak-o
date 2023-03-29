@@ -1,8 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 export function Navbar() {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const returnToHome = () => {
     navigate('/');
     window.location.reload();
@@ -21,7 +22,7 @@ export function Navbar() {
         "
           onClick={returnToHome}
         >
-          Salir
+          {t('nav.action.label')}
         </button>
       </div>
     </div>
