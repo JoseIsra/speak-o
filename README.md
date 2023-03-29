@@ -21,3 +21,6 @@ A web app where you can practice your pronunciation by repeating some phrases or
 - ### Daisy UI
 
   A customizable Tailwind CSS component library. You can check it out here [DaisyUI](https://daisyui.com/)
+
+- ### React-i18nnext
+  Famouse library to handle internationalization. Read more about this library [here](https://react.i18next.com/getting-started)

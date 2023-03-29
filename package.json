@@ -13,11 +13,13 @@
     "@speechly/react-ui": "^2.7.4",
     "atropos": "^1.0.2",
     "daisyui": "^2.51.2",
+    "i18next": "^22.4.13",
     "party-js": "^2.2.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-drag-drop-container": "^6.1.1",
+    "react-i18next": "^12.2.0",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.8.2",
     "recharts": "^2.5.0"
