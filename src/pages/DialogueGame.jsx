@@ -9,6 +9,7 @@ import { Progress } from '../components/Progress';
 import { Cube } from '../components/cube/Cube';
 import { useNavigate } from 'react-router-dom';
 import { useGameContext } from '../context/GameProvider';
+import { useTranslation } from 'react-i18next';
 
 const CORRECT_ANSWER_SOUND =
   'https://cdn.freesound.org/previews/587/587252_10334845-lq.mp3';
@@ -16,6 +17,7 @@ const INCORRET_ANSWER_SOUND =
   'https://cdn.freesound.org/previews/528/528956_10334845-lq.mp3';
 
 export function DialogueGame() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { speechDone, tentativeTranscript, resetResources } = useSpeechly();
   const {
@@ -50,7 +52,9 @@ export function DialogueGame() {
     return (
       tentativeTranscript.split(' ').length ==
         currentCharacter?.tokens.length &&
-      currentCharacter?.tokens.every((t) => tentativeTranscript.includes(t))
+      currentCharacter?.tokens.every(
+        (t, idx) => t == tentativeTranscript.split(' ')[idx]
+      )
     );
   }, [tentativeTranscript]);
 
@@ -78,7 +82,7 @@ export function DialogueGame() {
   return (
     <section>
       <div
-        className="w-10/12 sm:w-7/12 md:10/12 mx-auto "
+        className="w-10/12 sm:w-7/12 md:10/12 mx-auto  relative"
         ref={dialogueWrapper}
       >
         <Progress
@@ -106,29 +110,31 @@ export function DialogueGame() {
           <div className="relative w-[200px] h-[400px] mx-auto flex flex-col items-center justify-center">
             <Cube />
             <p className="mt-10 text-primary text-sm tracking-wide">
-              Cargando 🧐...
+              {t('dialogueGame.loading')}
             </p>
           </div>
         )}
       </div>
       {!loading && (
         <>
-          <button
-            className={`
+          {speechDone ? (
+            <div className="absolute bottom-2 w-full flex justify-center">
+              <button
+                className={`
               btn 
               btn-primary 
               btn-md 
             text-gray-100 
-              fixed bottom-2 
-              left-[50%] 
-              translate-x-[-50%]
-              ${speechDone ? '' : 'hidden'}
+
             `}
-            onClick={handleAction}
-          >
-            {currentIndex + 1 == totalCharacters ? 'Finalizar' : 'Siguiente'}
-          </button>
-          {!speechDone && (
+                onClick={handleAction}
+              >
+                {currentIndex + 1 == totalCharacters
+                  ? t('dialogueGame.actions.finish.label')
+                  : t('dialogueGame.actions.next.label')}
+              </button>
+            </div>
+          ) : (
             <PushToTalkButton placement="bottom" size="70px" voffset="0" />
           )}
         </>

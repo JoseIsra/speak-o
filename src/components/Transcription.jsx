@@ -14,7 +14,7 @@ export function Transcription({ words, transcription, noErrors, speechDone }) {
           <label
             key={idx}
             className={`text-sm font-extrabold w-fit ${
-              words.includes(tt) ? 'text-green-500' : 'text-red-500'
+              tt == words[idx] ? 'text-green-500' : 'text-red-500'
             }`}
           >
             {tt}{' '}

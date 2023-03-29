@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 export function CharacterSentence({
   characterName,
@@ -7,6 +8,8 @@ export function CharacterSentence({
   characterImg,
   characterOrigin,
 }) {
+  const { t } = useTranslation();
+
   const getImg = (image) => {
     return new URL(`../assets/${image}`, import.meta.url).href;
   };
@@ -27,9 +30,7 @@ export function CharacterSentence({
         </p>
       </div>
       <aside className="md:ml-5 flex-[0.5]">
-        <label className="text-xs text-sky-400">
-          Repite la frase presionado el botón
-        </label>
+        <label className="text-xs text-sky-400">{t('dialogueGame.hint')}</label>
         <div>
           {sentence.split(' ').map((s, idx) => (
             <span
