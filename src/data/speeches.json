@@ -1,6 +1,29 @@
 {
   "characters": [
     {
+      "name": "David",
+      "origin": "Project almanac",
+      "tokens": [
+        "here",
+        "we",
+        "go",
+        "project",
+        "almanac",
+        "number",
+        "four",
+        "five",
+        "three",
+        "delta",
+        "seven",
+        "one",
+        "temporal",
+        "relocation",
+        "prototype"
+      ],
+      "utterance": "here we go project almanac number four five three delta seven one temporal relocation prototype",
+      "image": "almanac.png"
+    },
+    {
       "name": "Rue",
       "origin": "Euphoria",
       "tokens": [
@@ -78,7 +101,7 @@
         "moves",
         "i",
         "saw",
-        "alphago's",
+        "alphago",
         "strange",
         "moves",
         "and",
@@ -94,7 +117,7 @@
         "realize",
         "why"
       ],
-      "utterance": "i knew after move seventy eight after like ten or twenty moves i saw alphago's strange moves and i knew alphago somehow became crazy but i didn't realize why",
+      "utterance": "i knew after move seventy eight after like ten or twenty moves i saw alphago strange moves and i knew alphago somehow became crazy but i didn't realize why",
       "image": "alphago.png"
     },
     {
@@ -155,6 +178,75 @@
       ],
       "utterance": "we needed them to believe we had gone for today in the name of freedom we take the battle to them",
       "image": "optimus.png"
+    },
+    {
+      "name": "Viggo Tarasov",
+      "origin": "John Wick",
+      "tokens": [
+        "he",
+        "is",
+        "a",
+        "man",
+        "of",
+        "focus",
+        "commitment",
+        "sheer",
+        "will",
+        "something",
+        "you",
+        "know",
+        "very",
+        "little",
+        "about",
+        "i",
+        "once",
+        "saw",
+        "him",
+        "kill",
+        "three",
+        "men",
+        "in",
+        "a",
+        "bar",
+        "with",
+        "a",
+        "pencil",
+        "with",
+        "a",
+        "fucking",
+        "pencil"
+      ],
+      "utterance": "he is a man of focus commitment sheer will something you know very little about i once saw him kill three men in a bar with a pencil with a fucking pencil",
+      "image": "johnwick.png"
+    },
+    {
+      "name": "Max",
+      "origin": "The wolf of wall street",
+      "tokens": [
+        "four",
+        "hundred",
+        "thirty",
+        "thousand",
+        "dollars",
+        "in",
+        "one",
+        "month",
+        "jordy",
+        "four",
+        "hundred",
+        "and",
+        "fucking",
+        "thirty",
+        "thousand",
+        "fucking",
+        "dollars",
+        "in",
+        "one",
+        "fucking",
+        "month"
+      ],
+      "utterance": "four hundred thirty thousand dollars in one month jordy four hundred and fucking thirty thousand fucking dollars in one fucking month",
+      "image": "wall.png"
     }
   ]
 }
