@@ -96,7 +96,7 @@ export function DialogueGame() {
               characterName={currentCharacter.name}
               characterImg={currentCharacter.image}
               characterOrigin={currentCharacter.origin}
-              sentence={currentCharacter.utterance}
+              tokens={currentCharacter.tokens}
               transcription={tentativeTranscript}
             />
             <Transcription
