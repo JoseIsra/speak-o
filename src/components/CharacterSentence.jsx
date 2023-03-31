@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 export function CharacterSentence({
   characterName,
-  sentence,
+  tokens,
   transcription,
   characterImg,
   characterOrigin,
@@ -32,15 +32,15 @@ export function CharacterSentence({
       <aside className="md:ml-5 flex-[0.5]">
         <label className="text-xs text-sky-400">{t('dialogueGame.hint')}</label>
         <div>
-          {sentence.split(' ').map((s, idx) => (
+          {tokens.map((t, idx) => (
             <span
               key={idx}
               className="text-sm text-center md:text-lg"
               style={{
-                color: s == transcription.split(' ')[idx] ? '#22c55e' : 'grey',
+                color: t == transcription.split(' ')[idx] ? '#22c55e' : 'grey',
               }}
             >
-              {s}{' '}
+              {t}{' '}
             </span>
           ))}
         </div>
@@ -49,7 +49,7 @@ export function CharacterSentence({
   );
 }
 CharacterSentence.propTypes = {
-  sentence: PropTypes.string.isRequired,
+  tokens: PropTypes.array,
   transcription: PropTypes.string,
   characterName: PropTypes.string,
   characterImg: PropTypes.string,
