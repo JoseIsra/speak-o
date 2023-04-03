@@ -1,5 +1,7 @@
 # SPEAK-0
 
+![](src/assets/speako.png)
+
 A web app where you can practice your pronunciation by repeating some phrases or sentences from series or movie characters
 
 ## What does this app use?
