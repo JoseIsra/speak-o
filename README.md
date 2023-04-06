@@ -4,6 +4,8 @@
 
 A web app where you can practice your pronunciation by repeating some phrases or sentences from series or movie characters
 
+## LIVE DEMO here: https://speak-o.netlify.app/
+
 ## What does this app use?
 
 - ### Speechly
